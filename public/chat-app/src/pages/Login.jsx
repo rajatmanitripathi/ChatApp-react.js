@@ -33,7 +33,7 @@ const Login= () =>{
                     <input type={"password"} placeholder = "password"/>
                    
                     <button className="button">signup</button>
-                    {err && <span>Something went bad</span>}
+                    {err && <span>Something went shit</span>}
                 </form>
                
                 <p>don't have an account?<Link to="/register">Register</Link></p>

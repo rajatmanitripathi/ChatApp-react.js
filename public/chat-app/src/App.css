@@ -1,0 +1,151 @@
+.App{
+  align-items: center;
+}
+.formContainer{
+  background-color: aqua;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.formWrapper{
+ background-color: rgb(211, 135, 182);
+ display: flex;
+ padding: 20px 60px;
+ border-radius: 10px;
+ flex-direction: column;
+ gap: 10px;
+ align-items: center;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+ 
+}
+
+.logo{
+  color: rgb(20, 3, 36) ;
+ font-weight: bold;
+ font-size: 24px;
+
+
+}
+.title{
+  color: rgb(26, 25, 27) ;
+ font-weight: bold;
+ font-size: 15px;
+}
+
+.button{
+  background-color: cyan;
+}
+
+.home{
+  background-color: aqua;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Container{
+  border: 1px solid rgb(245, 241, 241);
+  border-radius: 10px;
+  width: 50%;
+  height: 70%;
+  display: flex;
+  overflow: hidden;
+}
+.sidebar{
+  flex: 1;
+  border-right: 1px solid darkcyan;
+  background-color: darkcyan;
+  
+
+}
+.chat{
+  flex: 2;
+}
+.navbar{
+  display: flex;
+ 
+  padding: 20px;
+  background-color: darkcyan;
+  height: 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+.user{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+img{
+  background-color: aqua;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+}
+.search{
+   display: flex;
+   padding: 20px;
+   border-bottom: 1px solid rgb(8, 8, 8);
+
+}
+.user1{
+  display: flex;
+  flex-direction: column;
+  object-fit: cover;
+  align-items: center;
+
+}
+img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.chatinfo{
+  height: 50px;
+  background-color: darkcyan;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  color: black;
+}
+.messages{
+  background-color: rgb(22, 22, 21);
+  padding: 10px;
+  height: 527px;
+  overflow: scroll;
+}
+.input{
+  height: 50px;
+  background-color: rgb(241, 233, 233);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+input{
+  width: 100%;
+  border: none;
+  outline: none;
+  color: antiquewhite;
+  font-size: 18px;
+}
+.send{
+  gap: 10px;
+  align-items: center;
+  display: flex;
+}
+.messageinfo{
+  display: flex;
+  flex-direction: column;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+  

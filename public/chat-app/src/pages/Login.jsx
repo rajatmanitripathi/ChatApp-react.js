@@ -9,14 +9,16 @@ const Login= () =>{
        const handleSubmit=async(e)=>{
            e.preventDefault();
            
-           const email = e.target[1].value; 
-           const password = e.target[2].value;
+           const email = e.target[0].value; 
+           const password = e.target[1].value;
           
            
             
          try {
             await signInWithEmailAndPassword(auth, email, password)
-            navigate("/")
+                navigate("/");
+          
+           
          } catch (err) {
            seterr(true);
          }              
@@ -33,7 +35,7 @@ const Login= () =>{
                     <input type={"password"} placeholder = "password"/>
                    
                     <button className="button">signup</button>
-                    {err && <span>Something went shit</span>}
+                    {err && <span>Something went shi</span>}
                 </form>
                
                 <p>don't have an account?<Link to="/register">Register</Link></p>

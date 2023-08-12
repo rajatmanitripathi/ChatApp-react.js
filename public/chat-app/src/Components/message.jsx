@@ -1,16 +1,31 @@
-import React from "react";
+import React, {useContext } from "react";
+import { ChatContext } from '../context/ChatContext';
+import { AuthContext } from '../context/AuthContext';
 
-const Message = ()=>{
+const Message = ({message})=>{
+    const {CurrentUser} = useContext(AuthContext)
+    const Data= useContext(ChatContext)
+    
     return(
-        <div className="message">
+        
+            
+        
+            <div className={`message${message.senderId === CurrentUser.uid && "owner"}`}>
             <div className="messageinfo">
-                <img src="https://i.pinimg.com/736x/ce/dc/b7/cedcb7c362b12989d4a9785ac6ab35dd.jpg" alt=""/>
+                <img src={message.senderId === CurrentUser.uid ? CurrentUser.photoURL:Data.data.photoUrl} alt=""/>
                 <span>just now</span>
             </div>
             <div className="messagecontent">
-                <p>hello</p>
+                <p>{message.text}</p>
+               {message.img && <img src={message.img} alt=""/>} 
+
             </div>
         </div>
+        
+       
+       
+       
+       
     )
 }
 export default Message

@@ -3,7 +3,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import { useContext } from 'react';
 import './App.css';
-import { AuthContext } from './context/authcontext';
+import { AuthContext } from './context/AuthContext';
 import { BrowserRouter,Routes, Route, Navigate } from 'react-router-dom';
 
 
@@ -14,7 +14,10 @@ function App() {
     if(!CurrentUser){
       return <Navigate to ="/login"/>
     }
+    
     return children;
+    
+   
   }
   return (
     <BrowserRouter>

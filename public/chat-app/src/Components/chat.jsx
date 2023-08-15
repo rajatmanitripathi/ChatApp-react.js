@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Messages from "./Messages";
 import Input from "./Input"
+import { ChatContext } from '../context/ChatContext';
+
+
 
 const Chat =()=>{
+    const Data= useContext(ChatContext)
+   
 return(
     <div className="chat">
         <div className="chatinfo">
-            <span>Nikki</span>
+            <span>{Data.data.user.displayName}</span> 
             <div className="chatimg">
                 <img src="https://static.vecteezy.com/system/resources/previews/002/261/132/original/camera-icon-symbol-sign-isolate-on-white-background-illustration-eps-10-free-vector.jpg" alt="" />
                 <img src="https://static.vecteezy.com/system/resources/previews/005/533/486/non_2x/add-bubble-isolated-icon-which-can-easily-modify-or-edit-vector.jpg" alt="" />

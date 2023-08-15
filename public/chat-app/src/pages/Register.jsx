@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { auth,storage,db} from "../firebase";
 import { createUserWithEmailAndPassword, updateProfile} from "firebase/auth";
 
-import {ref,uploadBytesResumable,getDownloadURL} from "firebase/storage";
+import {ref,uploadBytes,getDownloadURL} from "firebase/storage";
 import {doc, setDoc} from "firebase/firestore";
 import { useNavigate , Link} from "react-router-dom";
 
@@ -19,19 +19,44 @@ const Register = () =>{
         const displayName = e.target[0].value;
         const email = e.target[1].value;
         const password = e.target[2].value;
+        const file = e.target[3].files[0];
+       
+
+
+
+
        
         
          
       try {
         const res = await createUserWithEmailAndPassword(auth, email, password);
-       await setDoc(doc(db, "users", res.user.uid),{
-        uid:res.user.uid,
-        displayName,
-        email,
+        const storageRef = ref(storage, displayName);
+         uploadBytes(storageRef, file).then( (snapshot) => {
+           
+          getDownloadURL(snapshot.ref).then(async(downloadURL) => {
+            await updateProfile(res.user,{
+              displayName,
+              photoURL: downloadURL
+             })
+            
+           await setDoc(doc(db, "users", res.user.uid),{
+            uid:res.user.uid,
+            displayName,
+            email,
+            photoURL:downloadURL,
+           
+          });
+          await setDoc(doc(db,"userChats",res.user.uid),{});
+          navigate("/");
+        });
+          
+        })
+        
+           
+         
+          
        
-      });
-      await setDoc(doc(db,"userChats",res.user.uid),{});
-      navigate("/");
+     
       } catch (err) {
         seterr(true);
       }
@@ -67,6 +92,7 @@ const Register = () =>{
                          <span>add an avatar</span>
                     </label>
                     <button className="button">signup</button>
+                    {err && <span>Something went shi</span>}
                    
                     
                 </form>
